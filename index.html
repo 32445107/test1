@@ -4,416 +4,226 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Website</title>
+  <title>My Website - 編み物制作集</title>
 
   <style>
+    /* ページ全体 */
     * {
       box-sizing: border-box;
     }
 
     body {
       margin: 0;
-      padding-bottom: 155px;
-      font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
-      line-height: 1.8;
-      color: #65564f;
+      padding: 0;
+      padding-bottom: 90px;
+      font-family:
+        "Hiragino Kaku Gothic ProN",
+        "Yu Gothic",
+        "Meiryo",
+        sans-serif;
       background-color: #fffaf4;
+      color: #65564f;
+      line-height: 1.8;
     }
 
     /* ヘッダー */
     header {
       position: relative;
-      min-height: 120px;
       overflow: hidden;
-      padding: 30px 20px;
       text-align: center;
-      color: #795b50;
+      padding: 35px 20px;
       background-color: #f8deda;
-      border-bottom: 4px solid #f2c6c1;
-      animation: fadeInDown 0.9s ease-out both;
-    }
-
-    header h1,
-    header p {
-      position: relative;
-      z-index: 2;
+      color: #65564f;
     }
 
     header h1 {
       margin: 0;
-      font-size: 32px;
-      letter-spacing: 2px;
+      font-size: 2.4rem;
+      letter-spacing: 3px;
     }
 
     header p {
       margin: 8px 0 0;
-      color: #896e62;
+      font-size: 1rem;
     }
 
-    /* ヘッダーの飾り */
-    .decoration {
-      position: absolute;
-      display: block;
-      z-index: 3;
-      pointer-events: none;
-      user-select: none;
-      line-height: 1;
-      opacity: 1;
+    .header-decoration {
+      margin-top: 12px;
+      font-size: 1.5rem;
+      letter-spacing: 12px;
+      animation: decorationFloat 3s ease-in-out infinite;
     }
 
-    .heart {
-      color: #d88f9c;
-      font-size: 22px;
-      animation: heartFloat 4s ease-in-out infinite;
-    }
-
-    .heart-one {
-      top: 12px;
-      left: 8%;
-    }
-
-    .heart-two {
-      right: 8%;
-      bottom: 12px;
-      color: #e5a7ae;
-      font-size: 19px;
-      animation-delay: 1.2s;
-    }
-
-    .heart-three {
-      top: 18px;
-      right: 28%;
-      color: #c9919b;
-      font-size: 15px;
-      animation-delay: 2s;
-    }
-
-    .star {
-      color: #c79b45;
-      font-size: 21px;
-      animation: starTwinkle 3.5s ease-in-out infinite;
-    }
-
-    .star-one {
-      top: 12px;
-      left: 25%;
-      animation-delay: 0.5s;
-    }
-
-    .star-two {
-      top: 15px;
-      right: 20%;
-      font-size: 17px;
-      animation-delay: 1.6s;
-    }
-
-    .star-three {
-      bottom: 12px;
-      left: 18%;
-      font-size: 15px;
-      animation-delay: 2.2s;
-    }
-
-    .yarn {
-      font-size: 27px;
-      animation: yarnRoll 5s ease-in-out infinite;
-    }
-
-    .yarn-one {
-      left: 3%;
-      bottom: 10px;
-    }
-
-    .yarn-two {
-      top: 10px;
-      right: 3%;
-      font-size: 23px;
-      animation-delay: 1.5s;
-    }
-
-    @keyframes heartFloat {
-      0%, 100% { transform: translateY(0) rotate(-8deg); }
-      50% { transform: translateY(-10px) rotate(8deg); }
-    }
-
-    @keyframes starTwinkle {
+    @keyframes decorationFloat {
       0%, 100% {
-        transform: translateY(0) rotate(0deg) scale(0.9);
-        opacity: 0.55;
+        transform: translateY(0);
       }
-      50% {
-        transform: translateY(-7px) rotate(25deg) scale(1.15);
-        opacity: 1;
-      }
-    }
 
-    @keyframes yarnRoll {
-      0%, 100% { transform: translateY(0) rotate(-12deg); }
-      50% { transform: translateY(-7px) rotate(12deg); }
+      50% {
+        transform: translateY(-6px);
+      }
     }
 
     /* メインコンテンツ */
     main {
-      max-width: 850px;
-      margin: 35px auto;
-      padding: 0 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 30px 20px;
     }
 
-    section {
-      margin-bottom: 25px;
+    main section {
+      margin-bottom: 45px;
       padding: 25px;
-      background-color: #fffdf9;
-      border: 1px solid #f3e7dc;
+      background-color: #ffffff;
       border-radius: 18px;
-      box-shadow: 0 4px 12px #a68b7612;
-      animation: fadeInUp 0.8s ease-out both;
+      box-shadow: 0 4px 14px #bda99b20;
+      animation: fadeIn 0.8s ease both;
     }
 
-    main > section:nth-child(1) { animation-delay: 0.15s; }
-    main > section:nth-child(2) { animation-delay: 0.3s; }
-    main > section:nth-child(3) { animation-delay: 0.45s; }
-    main > section:nth-child(4) { animation-delay: 0.6s; }
-
-    /* タイトル */
-    section h2 {
+    main section h2 {
       position: relative;
-      margin-top: 0;
-      margin-bottom: 15px;
-      padding: 8px 14px;
-      color: #795b50;
-      background-color: #fbe9e5;
-      border-radius: 12px;
-      font-size: 22px;
-      overflow: visible;
-      isolation: isolate;
-      cursor: default;
+      display: inline-block;
+      margin: 0 0 20px;
+      padding: 0 0 8px;
+      font-size: 1.6rem;
+      color: #a87878;
+      border-bottom: 2px solid #f2d5d0;
+      cursor: pointer;
     }
 
-    section:nth-child(2) h2 { background-color: #e8f0e3; }
-    section:nth-child(3) h2 { background-color: #eee8f7; }
-    section:nth-child(4) h2 { background-color: #fff0cf; }
-
-    section p {
-      margin: 10px 0;
+    main section p {
+      margin: 0 0 12px;
     }
 
-    /*
-      タイトルの周りから飛び出す毛糸玉
-      最初は非表示、タイトルに触れるとポコポコ登場
-    */
-    .yarn-pop {
-      position: absolute;
-      z-index: 5;
-      display: block;
-      font-size: 22px;
-      line-height: 1;
-      opacity: 0;
-      pointer-events: none;
-      transform: scale(0.2);
-    }
-
-    .yarn-pop:nth-of-type(1) {
-      left: 12%;
-      top: 0;
-      --x: -12px;
-      --y: -35px;
-      --rotate: -25deg;
-    }
-
-    .yarn-pop:nth-of-type(2) {
-      left: 38%;
-      top: 0;
-      --x: 3px;
-      --y: -43px;
-      --rotate: 25deg;
-    }
-
-    .yarn-pop:nth-of-type(3) {
-      right: 27%;
-      top: 0;
-      --x: 10px;
-      --y: -38px;
-      --rotate: -18deg;
-    }
-
-    .yarn-pop:nth-of-type(4) {
-      right: 8%;
-      top: 0;
-      --x: 15px;
-      --y: -32px;
-      --rotate: 30deg;
-    }
-
-    /* マウスを乗せたとき */
-    section h2:hover .yarn-pop,
-    section h2:active .yarn-pop {
-      animation: yarnPop 0.85s ease-out both;
-    }
-
-    section h2:hover .yarn-pop:nth-of-type(2),
-    section h2:active .yarn-pop:nth-of-type(2) {
-      animation-delay: 0.12s;
-    }
-
-    section h2:hover .yarn-pop:nth-of-type(3),
-    section h2:active .yarn-pop:nth-of-type(3) {
-      animation-delay: 0.24s;
-    }
-
-    section h2:hover .yarn-pop:nth-of-type(4),
-    section h2:active .yarn-pop:nth-of-type(4) {
-      animation-delay: 0.36s;
-    }
-
-    @keyframes yarnPop {
-      0% {
+    @keyframes fadeIn {
+      from {
         opacity: 0;
-        transform: translate(0, 0) scale(0.2) rotate(0deg);
+        transform: translateY(12px);
       }
-      25% {
+
+      to {
         opacity: 1;
-        transform: translate(var(--x), var(--y)) scale(1.15)
-                   rotate(var(--rotate));
-      }
-      55% {
-        opacity: 1;
-        transform: translate(var(--x), calc(var(--y) - 8px))
-                   scale(1) rotate(calc(var(--rotate) + 12deg));
-      }
-      100% {
-        opacity: 0;
-        transform: translate(var(--x), calc(var(--y) - 20px))
-                   scale(0.65) rotate(calc(var(--rotate) + 25deg));
+        transform: translateY(0);
       }
     }
 
     /* 制作物一覧 */
-    .works-intro {
-      margin-bottom: 22px;
-      color: #927b70;
-      font-size: 14px;
-    }
-
-    .works-grid {
+    .works {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
+      gap: 24px;
     }
 
     .work-card {
-      min-width: 0;
       overflow: hidden;
-      padding: 10px;
-      background-color: #ffffff;
-      border: 1px solid #f1dfd5;
-      border-radius: 16px;
-      box-shadow: 0 4px 10px #a68b7618;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      padding: 15px;
+      background-color: #fffaf7;
+      border: 1px solid #f1e3dc;
+      border-radius: 15px;
+      text-align: center;
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
     }
 
     .work-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 10px 22px #a68b7628;
+      box-shadow: 0 8px 18px #bda99b30;
     }
 
-    .work-card:focus-within {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 18px #a68b7628;
-    }
-
-    .work-image {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      overflow: hidden;
-      border-radius: 11px;
-      background-color: #f8eee5;
-      border: 4px solid #fff8f0;
-    }
-
-    .work-image img {
+    .work-card img {
       display: block;
       width: 100%;
-      height: 100%;
+      height: 220px;
       object-fit: cover;
-      transition: transform 0.4s ease;
+      border-radius: 10px;
+      background-color: #f5ebe5;
+      transition: transform 0.3s ease;
     }
 
-    .work-card:hover .work-image img {
-      transform: scale(1.04);
+    .work-card:hover img {
+      transform: scale(1.03);
     }
 
-    .work-info {
-      padding: 10px 3px 5px;
+    .work-card h3 {
+      margin: 14px 0 6px;
+      color: #8d7770;
+      font-size: 1.15rem;
     }
 
-    .work-tag {
-      display: inline-block;
-      padding: 2px 8px;
-      color: #9c7770;
-      background-color: #fbeae6;
-      border-radius: 20px;
-      font-size: 9px;
-      letter-spacing: 1px;
+    .work-card p {
+      margin: 0;
+      font-size: 0.95rem;
     }
 
-    .work-info h3 {
-      margin: 8px 0;
-      color: #795b50;
-      font-size: 15px;
-      line-height: 1.6;
+    /* 参考ページ */
+    .reference-list {
+      padding-left: 1.5em;
     }
 
-    /* 制作予定リスト */
-    .project-list {
-      padding-left: 25px;
+    .reference-list li {
+      margin-bottom: 8px;
     }
 
-    .project-list li {
-      margin: 8px 0;
-      padding-left: 5px;
-    }
-
-    .project-list li::marker {
-      color: #d9a49b;
-    }
-
-    /* リンク */
     a {
-      color: #8b7770;
+      color: #a87878;
       text-decoration: none;
+      transition: color 0.2s ease;
     }
 
     a:hover {
-      color: #c27e79;
+      color: #d18e9b;
       text-decoration: underline;
+    }
+
+    /* 制作予定 */
+    .planned-work {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .planned-work img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 14px;
+      background-color: #f5ebe5;
+    }
+
+    .planned-work p {
+      flex: 1;
+      min-width: 180px;
     }
 
     /* フッター */
     footer {
       position: fixed;
+      right: 0;
       bottom: 0;
       left: 0;
       z-index: 100;
-      width: 100%;
       padding: 12px 15px;
-      text-align: center;
-      color: #ffffff;
       background-color: #9db9a6;
-      font-size: 13px;
-      line-height: 1.7;
-      box-shadow: 0 -3px 12px #a68b7610;
+      color: #ffffff;
+      text-align: center;
+      font-size: 0.85rem;
+      box-shadow: 0 -3px 12px #0000000d;
     }
 
     footer p {
-      margin: 0 0 3px;
+      margin: 3px 0;
     }
 
-    footer nav {
-      margin-bottom: 3px;
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 18px;
     }
 
     footer a {
-      margin: 0 7px;
       color: #ffffff;
     }
 
@@ -421,114 +231,131 @@
       color: #fff2d8;
     }
 
-    footer small {
-      color: #f8fff8;
+    /* 毛糸玉が飛び出すアニメーション */
+    .yarn-pop {
+      position: absolute;
+      z-index: 999;
+      display: block;
+      left: var(--start-x);
+      top: 50%;
+      font-size: 25px;
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+      opacity: 0;
+      filter: drop-shadow(0 2px 2px #b69a8a35);
+      animation: yarnBurst 1.1s cubic-bezier(.2, .8, .3, 1) forwards;
     }
 
-    @keyframes fadeInDown {
-      from {
+    @keyframes yarnBurst {
+      0% {
         opacity: 0;
-        transform: translateY(-18px);
+        transform: translate(0, 0) scale(0.2) rotate(0deg);
       }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
 
-    @keyframes fadeInUp {
-      from {
+      20% {
+        opacity: 1;
+        transform: translate(0, -8px) scale(1.2) rotate(20deg);
+      }
+
+      65% {
+        opacity: 1;
+        transform:
+          translate(
+            calc(var(--move-x) * 0.7),
+            calc(var(--move-y) * 0.7)
+          )
+          scale(1)
+          rotate(140deg);
+      }
+
+      100% {
         opacity: 0;
-        transform: translateY(18px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
+        transform:
+          translate(var(--move-x), var(--move-y))
+          scale(0.65)
+          rotate(240deg);
       }
     }
 
-    /* タブレット */
-    @media (max-width: 700px) {
-      .works-grid {
+    /* スマートフォン対応 */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.9rem;
+      }
+
+      main {
+        padding: 20px 14px;
+      }
+
+      main section {
+        padding: 20px 16px;
+        margin-bottom: 28px;
+      }
+
+      .works {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .work-card {
+        padding: 10px;
+      }
+
+      .work-card img {
+        height: 170px;
+      }
+
+      .planned-work img {
+        width: 140px;
+        height: 140px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding: 28px 12px;
+      }
+
+      header h1 {
+        font-size: 1.6rem;
+        letter-spacing: 1px;
+      }
+
+      .works {
+        grid-template-columns: 1fr;
+      }
+
+      .work-card img {
+        height: 230px;
+      }
+
+      main section h2 {
+        font-size: 1.35rem;
+      }
+
+      .planned-work {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .planned-work img {
+        width: 100%;
+        max-width: 240px;
+        height: 220px;
+      }
+
+      footer {
+        font-size: 0.75rem;
+        padding: 8px 10px;
+      }
+
+      .footer-links {
         gap: 12px;
       }
     }
 
-    /* スマートフォン */
-    @media (max-width: 600px) {
-      body {
-        padding-bottom: 145px;
-      }
-
-      header {
-        padding: 22px 15px;
-      }
-
-      header h1 {
-        font-size: 26px;
-      }
-
-      main {
-        margin: 20px auto;
-        padding: 0 14px;
-      }
-
-      section {
-        padding: 18px;
-        border-radius: 14px;
-      }
-
-      section h2 {
-        font-size: 19px;
-      }
-
-      footer {
-        padding: 10px 8px;
-        font-size: 12px;
-      }
-
-      footer a {
-        margin: 0 4px;
-      }
-
-      .heart { font-size: 18px; }
-      .star { font-size: 17px; }
-      .yarn { font-size: 22px; }
-    }
-
-    /* 小さいスマートフォン */
-    @media (max-width: 400px) {
-      .works-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .work-card {
-        display: grid;
-        grid-template-columns: 110px minmax(0, 1fr);
-        align-items: center;
-        gap: 10px;
-      }
-
-      .work-image {
-        aspect-ratio: 1 / 1;
-      }
-
-      .work-info {
-        padding: 5px 0;
-      }
-
-      .heart-three,
-      .star-three {
-        display: none;
-      }
-
-      .yarn-pop {
-        font-size: 18px;
-      }
-    }
-
-    /* 動きを少なくする設定への配慮 */
+    /* 動きを控える設定が有効な場合 */
     @media (prefers-reduced-motion: reduce) {
       *,
       *::before,
@@ -538,160 +365,196 @@
         scroll-behavior: auto !important;
         transition-duration: 0.01ms !important;
       }
-
-      .work-card:hover,
-      .work-card:focus-within {
-        transform: none;
-      }
     }
   </style>
 </head>
 
 <body>
-
+  <!-- ヘッダー -->
   <header>
-    <span class="decoration heart heart-one" aria-hidden="true">♥</span>
-    <span class="decoration star star-one" aria-hidden="true">✦</span>
-    <span class="decoration heart heart-two" aria-hidden="true">♡</span>
-    <span class="decoration star star-two" aria-hidden="true">✧</span>
-    <span class="decoration heart heart-three" aria-hidden="true">♥</span>
-    <span class="decoration star star-three" aria-hidden="true">✦</span>
-    <span class="decoration yarn yarn-one" aria-hidden="true">🧶</span>
-    <span class="decoration yarn yarn-two" aria-hidden="true">🧶</span>
-
     <h1>My Website</h1>
     <p>編み物制作集</p>
+
+    <div class="header-decoration" aria-hidden="true">
+      🧶 ♡ ✨ 🧶 ☆
+    </div>
   </header>
 
+  <!-- メインコンテンツ -->
   <main>
-
+    <!-- ようこそ -->
     <section>
-      <h2>
-        ようこそ！
-        <span class="yarn-pop" aria-hidden="true">🧶</span>
-        <span class="yarn-pop" aria-hidden="true">🧶</span>
-        <span class="yarn-pop" aria-hidden="true">🧶</span>
-        <span class="yarn-pop" aria-hidden="true">🧶</span>
-      </h2>
+      <h2>ようこそ！</h2>
       <p>
         このサイトは初心者が編み物で制作物を作る過程を記録するサイトです。
       </p>
-    </section>
-
-    <section class="works-section">
-      <h2>
-        制作物一覧
-        <span class="yarn-pop" aria-hidden="true">🧶</span>
-        <span class="yarn-pop" aria-hidden="true">🧶</span>
-        <span class="yarn-pop" aria-hidden="true">🧶</span>
-        <span class="yarn-pop" aria-hidden="true">🧶</span>
-      </h2>
-
-      <p class="works-intro">
-        ひとつずつ心を込めて作った作品たちです 🧶
+      <p>
+        少しずつ作品を増やしていく予定です。ぜひゆっくり見ていってください！
       </p>
-
-      <div class="works-grid">
-
-        <article class="work-card">
-          <div class="work-image">
-            <img
-              src="https://raw.githubusercontent.com/32445107/test1/1e7f8f26e21a4d5d40eeaa0628f030509121d0f4/%E3%82%B3%E3%83%BC%E3%82%B9%E3%82%BF%E3%83%BC.jpg"
-              alt="コースター"
-              loading="lazy">
-          </div>
-          <div class="work-info">
-            <span class="work-tag">HANDMADE</span>
-            <h3>コースター</h3>
-          </div>
-        </article>
-
-        <article class="work-card">
-          <div class="work-image">
-            <img
-              src="https://raw.githubusercontent.com/32445107/test1/main/%E3%83%9D%E3%83%BC%E3%83%81.jpg"
-              alt="ワッフル模様のポーチ"
-              loading="lazy">
-          </div>
-          <div class="work-info">
-            <span class="work-tag">HANDMADE</span>
-            <h3>ワッフル模様のポーチ</h3>
-          </div>
-        </article>
-
-        <article class="work-card">
-          <div class="work-image">
-            <img
-              src="https://raw.githubusercontent.com/32445107/test1/main/%E8%80%B3%E5%BD%93%E3%81%A6.jpg"
-              alt="耳当て"
-              loading="lazy">
-          </div>
-          <div class="work-info">
-            <span class="work-tag">HANDMADE</span>
-            <h3>耳当て</h3>
-          </div>
-        </article>
-
-      </div>
     </section>
 
+    <!-- 制作物一覧 -->
     <section>
-      <h2>
-        参考にさせていただいたページ
-        <span class="yarn-pop" aria-hidden="true">🧶</span>
-        <span class="yarn-pop" aria-hidden="true">🧶</span>
-        <span class="yarn-pop" aria-hidden="true">🧶</span>
-        <span class="yarn-pop" aria-hidden="true">🧶</span>
-      </h2>
-      <p>ーーーーーーーー</p>
-    </section>
+      <h2>制作物一覧</h2>
 
-    <section>
-      <h2>
-        制作予定のもの
-        <span class="yarn-pop" aria-hidden="true">🧶</span>
-        <span class="yarn-pop" aria-hidden="true">🧶</span>
-        <span class="yarn-pop" aria-hidden="true">🧶</span>
-        <span class="yarn-pop" aria-hidden="true">🧶</span>
-      </h2>
-
-      <div class="works-grid">
+      <div class="works">
         <article class="work-card">
-          <div class="work-image">
-            <img
-              src="https://raw.githubusercontent.com/32445107/test1/main/%E8%8A%B1%E6%9D%9F.jpg"
-              alt="制作予定の花束"
-              loading="lazy">
-          </div>
-          <div class="work-info">
-            <span class="work-tag">COMING SOON</span>
-            <h3>花束</h3>
-          </div>
+          <img
+            src="https://raw.githubusercontent.com/32445107/test1/1e7f8f26e21a4d5d40eeaa0628f030509121d0f4/%E3%82%B3%E3%83%BC%E3%82%B9%E3%82%BF%E3%83%BC.jpg"
+            alt="手編みのコースター"
+            loading="lazy"
+          >
+          <h3>コースター</h3>
+          <p>初めて作った作品です。</p>
+        </article>
+
+        <article class="work-card">
+          <img
+            src="https://raw.githubusercontent.com/32445107/test1/main/%E3%83%9D%E3%83%BC%E3%83%81.jpg"
+            alt="ワッフル模様のポーチ"
+            loading="lazy"
+          >
+          <h3>ワッフル模様のポーチ</h3>
+          <p>模様編みに挑戦しました。</p>
+        </article>
+
+        <article class="work-card">
+          <img
+            src="https://raw.githubusercontent.com/32445107/test1/main/%E8%80%B3%E5%BD%93%E3%81%A6.jpg"
+            alt="手編みの耳当て"
+            loading="lazy"
+          >
+          <h3>耳当て</h3>
+          <p>寒い季節に使える作品です。</p>
         </article>
       </div>
     </section>
 
+    <!-- 参考ページ -->
+    <section>
+      <h2>参考にさせていただいたページ</h2>
+
+      <ul class="reference-list">
+        <li>
+          <a
+            href="https://www.youtube.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            編み物の参考動画
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://www.pinterest.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            編み物のデザイン参考
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- 制作予定 -->
+    <section>
+      <h2>制作予定のもの</h2>
+
+      <div class="planned-work">
+        <img
+          src="https://raw.githubusercontent.com/32445107/test1/main/%E8%8A%B1%E6%9D%9F.jpg"
+          alt="これから制作予定の花束"
+          loading="lazy"
+        >
+
+        <p>
+          次は毛糸で花束を作ってみたいです。
+          色や形を工夫して、かわいらしい作品に仕上げたいと思っています。
+        </p>
+      </div>
+    </section>
   </main>
 
+  <!-- フッター -->
   <footer>
     <p>
       お問い合わせ：
       <a href="mailto:info@example.com">info@example.com</a>
     </p>
 
-    <nav aria-label="ソーシャルメディア">
-      <a href="https://www.instagram.com/"
-         target="_blank" rel="noopener noreferrer">Instagram</a>
-      |
-      <a href="https://x.com/"
-         target="_blank" rel="noopener noreferrer">X</a>
-      |
-      <a href="https://www.facebook.com/"
-         target="_blank" rel="noopener noreferrer">Facebook</a>
-    </nav>
+    <div class="footer-links">
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+        Instagram
+      </a>
+      <a href="https://x.com/" target="_blank" rel="noopener noreferrer">
+        X
+      </a>
+      <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+        Facebook
+      </a>
+    </div>
 
-    <small>&copy; 2026 My Website</small>
+    <p>&copy; 2026 My Website</p>
   </footer>
 
+  <!-- 見出しに触れると毛糸玉が飛び出す -->
+  <script>
+    document.querySelectorAll("main section h2").forEach((title) => {
+      let lastPop = 0;
+
+      // 6色のパステルカラー
+      const yarnColors = [
+        "#F4A7B9", // さくらピンク
+        "#B9A5E8", // ラベンダー
+        "#9DD9D2", // ミント
+        "#FFE09A", // クリームイエロー
+        "#A8C9F0", // ベビーブルー
+        "#F6BEA3"  // ピーチ
+      ];
+
+      function popYarn() {
+        const now = Date.now();
+
+        // 連続して大量に発生しないようにする
+        if (now - lastPop < 250) return;
+        lastPop = now;
+
+        // 6個の毛糸玉を飛ばす
+        for (let i = 0; i < 6; i++) {
+          const yarn = document.createElement("span");
+
+          yarn.className = "yarn-pop";
+          yarn.textContent = "🧶";
+          yarn.setAttribute("aria-hidden", "true");
+
+          // 絵文字によっては色が反映されない場合があります
+          yarn.style.color = yarnColors[i];
+
+          const startX = Math.random() * 85 + 5;
+          const moveX = (Math.random() - 0.5) * 140;
+          const moveY = -(Math.random() * 70 + 40);
+
+          yarn.style.setProperty("--start-x", startX + "%");
+          yarn.style.setProperty("--move-x", moveX + "px");
+          yarn.style.setProperty("--move-y", moveY + "px");
+          yarn.style.animationDelay = (i * 0.06) + "s";
+
+          title.appendChild(yarn);
+
+          yarn.addEventListener("animationend", () => {
+            yarn.remove();
+          });
+        }
+      }
+
+      // パソコンでマウスを乗せたとき
+      title.addEventListener("pointerenter", popYarn);
+
+      // スマートフォンで触れたとき
+      title.addEventListener("touchstart", popYarn, {
+        passive: true
+      });
+    });
+  </script>
 </body>
 </html>
