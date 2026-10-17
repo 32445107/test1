@@ -1,0 +1,255 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Website - 編み物制作集</title>
+
+  <style>
+    /* ページ全体 */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding-bottom: 160px;
+      font-family: "Hiragino Kaku Gothic ProN",
+                   "Yu Gothic", sans-serif;
+      line-height: 1.8;
+      color: #65564f;
+      background-color: #fffaf4;
+    }
+
+    /* ヘッダー */
+    header {
+      padding: 30px 20px;
+      text-align: center;
+      color: #795b50;
+      background-color: #f8deda;
+      border-bottom: 4px solid #f2c6c1;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 32px;
+      letter-spacing: 2px;
+    }
+
+    header p {
+      margin: 8px 0 0;
+      color: #896e62;
+    }
+
+    /* メインコンテンツ */
+    main {
+      max-width: 850px;
+      margin: 35px auto;
+      padding: 0 20px;
+    }
+
+    section {
+      margin-bottom: 25px;
+      padding: 25px;
+      background-color: #ffffff;
+      border: 1px solid #f3e7dc;
+      border-radius: 18px;
+      box-shadow: 0 4px 12px #a68b7612;
+    }
+
+    section h2 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      padding: 8px 14px;
+      color: #795b50;
+      background-color: #fbe9e5;
+      border-radius: 12px;
+      font-size: 22px;
+    }
+
+    /* セクションごとに異なるパステルカラー */
+    section:nth-child(2) h2 {
+      background-color: #e8f0e3;
+    }
+
+    section:nth-child(3) h2 {
+      background-color: #eee8f7;
+    }
+
+    section:nth-child(4) h2 {
+      background-color: #fff0cf;
+    }
+
+    section p {
+      margin: 10px 0;
+    }
+
+    /* 制作物一覧 */
+    .project-list {
+      padding-left: 25px;
+    }
+
+    .project-list li {
+      margin: 8px 0;
+      padding-left: 5px;
+    }
+
+    .project-list li::marker {
+      color: #d9a49b;
+    }
+
+    /* リンク */
+    a {
+      color: #8b7770;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #c27e79;
+      text-decoration: underline;
+    }
+
+    /* フッターを画面下部に固定 */
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 12px 15px;
+      text-align: center;
+      color: #ffffff;
+      background-color: #9db9a6;
+      font-size: 13px;
+      line-height: 1.7;
+      box-shadow: 0 -3px 12px #a68b7610;
+    }
+
+    footer p {
+      margin: 0 0 3px;
+    }
+
+    footer nav {
+      margin-bottom: 3px;
+    }
+
+    footer a {
+      margin: 0 7px;
+      color: #ffffff;
+    }
+
+    footer a:hover {
+      color: #fff2d8;
+    }
+
+    footer small {
+      color: #f8fff8;
+    }
+
+    /* スマートフォン対応 */
+    @media (max-width: 600px) {
+      body {
+        padding-bottom: 145px;
+      }
+
+      header {
+        padding: 22px 15px;
+      }
+
+      header h1 {
+        font-size: 26px;
+      }
+
+      main {
+        margin: 20px auto;
+        padding: 0 14px;
+      }
+
+      section {
+        padding: 18px;
+        border-radius: 14px;
+      }
+
+      section h2 {
+        font-size: 19px;
+      }
+
+      footer {
+        padding: 10px 8px;
+        font-size: 12px;
+      }
+
+      footer a {
+        margin: 0 4px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ヘッダー -->
+  <header>
+    <h1>My Website</h1>
+    <p>編み物制作集</p>
+  </header>
+
+  <!-- メインコンテンツ -->
+  <main>
+
+    <section>
+      <h2>ようこそ！</h2>
+      <p>
+        このサイトは初心者が編み物で制作物を作る過程を
+        記録するサイトです。
+      </p>
+    </section>
+
+    <section>
+      <h2>制作物一覧</h2>
+      <ul class="project-list">
+        <li>ワッフル模様のポーチ</li>
+        <li>耳当て</li>
+        <li>コースター</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>参考にさせていただいたページ</h2>
+      <p>参考にしたサイトのURLをここに追加します。</p>
+    </section>
+
+    <section>
+      <h2>制作予定のもの</h2>
+      <ul class="project-list">
+        <li>花束</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- フッター -->
+  <footer>
+    <p>
+      お問い合わせ：
+      <a href="mailto:info@example.com">
+        info@example.com
+      </a>
+    </p>
+
+    <nav aria-label="ソーシャルメディア">
+      <a href="https://www.instagram.com/"
+         target="_blank" rel="noopener noreferrer">Instagram</a>
+      |
+      <a href="https://x.com/"
+         target="_blank" rel="noopener noreferrer">X</a>
+      |
+      <a href="https://www.facebook.com/"
+         target="_blank" rel="noopener noreferrer">Facebook</a>
+    </nav>
+
+    <small>&copy; 2026 My Website</small>
+  </footer>
+
+</body>
+</html>
