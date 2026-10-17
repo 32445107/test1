@@ -29,6 +29,9 @@
       color: #795b50;
       background-color: #f8deda;
       border-bottom: 4px solid #f2c6c1;
+
+      /* ヘッダーがふわっと登場 */
+      animation: fadeInDown 0.9s ease-out both;
     }
 
     header h1 {
@@ -56,6 +59,26 @@
       border: 1px solid #f3e7dc;
       border-radius: 18px;
       box-shadow: 0 4px 12px #a68b7612;
+
+      /* セクションがふわっと登場 */
+      animation: fadeInUp 0.8s ease-out both;
+    }
+
+    /* セクションが少しずつ登場 */
+    main > section:nth-child(1) {
+      animation-delay: 0.15s;
+    }
+
+    main > section:nth-child(2) {
+      animation-delay: 0.3s;
+    }
+
+    main > section:nth-child(3) {
+      animation-delay: 0.45s;
+    }
+
+    main > section:nth-child(4) {
+      animation-delay: 0.6s;
     }
 
     section h2 {
@@ -107,12 +130,21 @@
       border: 1px solid #f1dfd5;
       border-radius: 16px;
       box-shadow: 0 4px 10px #a68b7618;
-      transition: transform 0.25s ease,
-                  box-shadow 0.25s ease;
+
+      /* 浮き上がりをなめらかにする */
+      transition: transform 0.3s ease,
+                  box-shadow 0.3s ease;
     }
 
+    /* マウスを乗せるとふんわり浮く */
     .work-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-6px);
+      box-shadow: 0 10px 22px #a68b7628;
+    }
+
+    /* キーボード操作でも同じ効果 */
+    .work-card:focus-within {
+      transform: translateY(-4px);
       box-shadow: 0 8px 18px #a68b7628;
     }
 
@@ -131,7 +163,9 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.3s ease;
+
+      /* 画像もゆっくり拡大 */
+      transition: transform 0.4s ease;
     }
 
     .work-card:hover .work-image img {
@@ -222,6 +256,32 @@
       color: #f8fff8;
     }
 
+    /* ヘッダーの登場アニメーション */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* セクションの登場アニメーション */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     /* タブレット対応 */
     @media (max-width: 700px) {
       .works-grid {
@@ -287,6 +347,28 @@
 
       .work-info {
         padding: 5px 0;
+      }
+    }
+
+    /* 動きを少なくする設定が有効な場合 */
+    @media (prefers-reduced-motion: reduce) {
+      header,
+      section {
+        animation: none;
+      }
+
+      .work-card,
+      .work-image img {
+        transition: none;
+      }
+
+      .work-card:hover,
+      .work-card:focus-within {
+        transform: none;
+      }
+
+      .work-card:hover .work-image img {
+        transform: none;
       }
     }
   </style>
