@@ -24,25 +24,150 @@
 
     /* ヘッダー */
     header {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
       padding: 30px 20px;
       text-align: center;
       color: #795b50;
       background-color: #f8deda;
       border-bottom: 4px solid #f2c6c1;
-
-      /* ヘッダーがふわっと登場 */
       animation: fadeInDown 0.9s ease-out both;
     }
 
     header h1 {
+      position: relative;
+      z-index: 2;
       margin: 0;
       font-size: 32px;
       letter-spacing: 2px;
     }
 
     header p {
+      position: relative;
+      z-index: 2;
       margin: 8px 0 0;
       color: #896e62;
+    }
+
+    /* ヘッダーの飾り */
+    .decoration {
+      position: absolute;
+      z-index: 1;
+      pointer-events: none;
+      user-select: none;
+      line-height: 1;
+      opacity: 0.8;
+    }
+
+    /* ハート */
+    .heart {
+      color: #d88f9c;
+      font-size: 22px;
+      animation: heartFloat 4s ease-in-out infinite;
+    }
+
+    .heart-one {
+      top: 16%;
+      left: 12%;
+      animation-delay: 0s;
+    }
+
+    .heart-two {
+      right: 14%;
+      bottom: 17%;
+      color: #e5a7ae;
+      font-size: 17px;
+      animation-delay: 1.2s;
+    }
+
+    .heart-three {
+      top: 20%;
+      right: 28%;
+      color: #c9919b;
+      font-size: 13px;
+      animation-delay: 2s;
+    }
+
+    /* 星 */
+    .star {
+      color: #d4ad68;
+      font-size: 21px;
+      animation: starTwinkle 3.5s ease-in-out infinite;
+    }
+
+    .star-one {
+      top: 20%;
+      left: 29%;
+      animation-delay: 0.5s;
+    }
+
+    .star-two {
+      right: 10%;
+      top: 18%;
+      font-size: 15px;
+      animation-delay: 1.6s;
+    }
+
+    .star-three {
+      left: 20%;
+      bottom: 15%;
+      font-size: 14px;
+      animation-delay: 2.2s;
+    }
+
+    /* 毛糸玉 */
+    .yarn {
+      font-size: 27px;
+      animation: yarnRoll 6s ease-in-out infinite;
+    }
+
+    .yarn-one {
+      left: 5%;
+      bottom: 12%;
+      animation-delay: 0.3s;
+    }
+
+    .yarn-two {
+      right: 5%;
+      bottom: 13%;
+      font-size: 23px;
+      animation-delay: 1.5s;
+    }
+
+    /* ヘッダー内の飾りがふわふわ動く */
+    @keyframes heartFloat {
+      0%, 100% {
+        transform: translateY(0) rotate(-8deg);
+      }
+
+      50% {
+        transform: translateY(-10px) rotate(8deg);
+      }
+    }
+
+    /* 星がきらっと回転 */
+    @keyframes starTwinkle {
+      0%, 100% {
+        transform: translateY(0) rotate(0deg) scale(0.9);
+        opacity: 0.5;
+      }
+
+      50% {
+        transform: translateY(-7px) rotate(25deg) scale(1.15);
+        opacity: 1;
+      }
+    }
+
+    /* 毛糸玉がころころ揺れる */
+    @keyframes yarnRoll {
+      0%, 100% {
+        transform: translateY(0) rotate(-12deg);
+      }
+
+      50% {
+        transform: translateY(-7px) rotate(12deg);
+      }
     }
 
     /* メインコンテンツ */
@@ -59,8 +184,6 @@
       border: 1px solid #f3e7dc;
       border-radius: 18px;
       box-shadow: 0 4px 12px #a68b7612;
-
-      /* セクションがふわっと登場 */
       animation: fadeInUp 0.8s ease-out both;
     }
 
@@ -121,7 +244,7 @@
       gap: 18px;
     }
 
-    /* 小窓のようなカード */
+    /* 作品カード */
     .work-card {
       min-width: 0;
       overflow: hidden;
@@ -130,25 +253,21 @@
       border: 1px solid #f1dfd5;
       border-radius: 16px;
       box-shadow: 0 4px 10px #a68b7618;
-
-      /* 浮き上がりをなめらかにする */
       transition: transform 0.3s ease,
                   box-shadow 0.3s ease;
     }
 
-    /* マウスを乗せるとふんわり浮く */
     .work-card:hover {
       transform: translateY(-6px);
       box-shadow: 0 10px 22px #a68b7628;
     }
 
-    /* キーボード操作でも同じ効果 */
     .work-card:focus-within {
       transform: translateY(-4px);
       box-shadow: 0 8px 18px #a68b7628;
     }
 
-    /* 画像 */
+    /* 作品画像 */
     .work-image {
       width: 100%;
       aspect-ratio: 1 / 1;
@@ -163,8 +282,6 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-
-      /* 画像もゆっくり拡大 */
       transition: transform 0.4s ease;
     }
 
@@ -194,7 +311,7 @@
       line-height: 1.6;
     }
 
-    /* リスト */
+    /* 制作予定リスト */
     .project-list {
       padding-left: 25px;
     }
@@ -219,7 +336,7 @@
       text-decoration: underline;
     }
 
-    /* フッターを画面下部に固定 */
+    /* フッター */
     footer {
       position: fixed;
       bottom: 0;
@@ -256,7 +373,7 @@
       color: #f8fff8;
     }
 
-    /* ヘッダーの登場アニメーション */
+    /* 登場アニメーション */
     @keyframes fadeInDown {
       from {
         opacity: 0;
@@ -269,7 +386,6 @@
       }
     }
 
-    /* セクションの登場アニメーション */
     @keyframes fadeInUp {
       from {
         opacity: 0;
@@ -282,15 +398,27 @@
       }
     }
 
-    /* タブレット対応 */
+    /* タブレット */
     @media (max-width: 700px) {
       .works-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 12px;
       }
+
+      .heart-one {
+        left: 8%;
+      }
+
+      .star-one {
+        left: 25%;
+      }
+
+      .heart-three {
+        right: 23%;
+      }
     }
 
-    /* スマートフォン対応 */
+    /* スマートフォン */
     @media (max-width: 600px) {
       body {
         padding-bottom: 145px;
@@ -326,9 +454,21 @@
       footer a {
         margin: 0 4px;
       }
+
+      .heart {
+        font-size: 18px;
+      }
+
+      .star {
+        font-size: 17px;
+      }
+
+      .yarn {
+        font-size: 22px;
+      }
     }
 
-    /* 小さいスマートフォンでは横長カード */
+    /* 小さいスマートフォン */
     @media (max-width: 400px) {
       .works-grid {
         grid-template-columns: 1fr;
@@ -348,26 +488,26 @@
       .work-info {
         padding: 5px 0;
       }
+
+      .heart-three,
+      .star-three {
+        display: none;
+      }
     }
 
     /* 動きを少なくする設定が有効な場合 */
     @media (prefers-reduced-motion: reduce) {
-      header,
-      section {
-        animation: none;
-      }
-
-      .work-card,
-      .work-image img {
-        transition: none;
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
       }
 
       .work-card:hover,
       .work-card:focus-within {
-        transform: none;
-      }
-
-      .work-card:hover .work-image img {
         transform: none;
       }
     }
@@ -378,6 +518,16 @@
 
   <!-- ヘッダー -->
   <header>
+    <!-- 飾りは装飾用なので読み上げ対象から除外 -->
+    <span class="decoration heart heart-one" aria-hidden="true">♥</span>
+    <span class="decoration star star-one" aria-hidden="true">✦</span>
+    <span class="decoration heart heart-two" aria-hidden="true">♡</span>
+    <span class="decoration star star-two" aria-hidden="true">✧</span>
+    <span class="decoration heart heart-three" aria-hidden="true">♥</span>
+    <span class="decoration star star-three" aria-hidden="true">✦</span>
+    <span class="decoration yarn yarn-one" aria-hidden="true">🧶</span>
+    <span class="decoration yarn yarn-two" aria-hidden="true">🧶</span>
+
     <h1>My Website</h1>
     <p>編み物制作集</p>
   </header>
@@ -449,9 +599,7 @@
     <!-- 参考にさせていただいたページ -->
     <section>
       <h2>参考にさせていただいたページ</h2>
-      <p>
-        ーーーーーーーー
-      </p>
+      <p>ーーーーーーーー</p>
     </section>
 
     <!-- 制作予定のもの -->
@@ -483,9 +631,7 @@
   <footer>
     <p>
       お問い合わせ：
-      <a href="mailto:info@example.com">
-        info@example.com
-      </a>
+      <a href="mailto:info@example.com">info@example.com</a>
     </p>
 
     <nav aria-label="ソーシャルメディア">
