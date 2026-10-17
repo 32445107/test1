@@ -25,8 +25,8 @@
     /* ヘッダー */
     header {
       position: relative;
+      min-height: 120px;
       overflow: hidden;
-      isolation: isolate;
       padding: 30px 20px;
       text-align: center;
       color: #795b50;
@@ -53,11 +53,13 @@
     /* ヘッダーの飾り */
     .decoration {
       position: absolute;
-      z-index: 1;
+      display: block;
+      z-index: 3;
       pointer-events: none;
       user-select: none;
       line-height: 1;
-      opacity: 0.8;
+      opacity: 1;
+      visibility: visible;
     }
 
     /* ハート */
@@ -68,74 +70,74 @@
     }
 
     .heart-one {
-      top: 16%;
-      left: 12%;
+      top: 12px;
+      left: 8%;
       animation-delay: 0s;
     }
 
     .heart-two {
-      right: 14%;
-      bottom: 17%;
+      right: 8%;
+      bottom: 12px;
       color: #e5a7ae;
-      font-size: 17px;
+      font-size: 19px;
       animation-delay: 1.2s;
     }
 
     .heart-three {
-      top: 20%;
+      top: 18px;
       right: 28%;
       color: #c9919b;
-      font-size: 13px;
+      font-size: 15px;
       animation-delay: 2s;
     }
 
     /* 星 */
     .star {
-      color: #d4ad68;
+      color: #c79b45;
       font-size: 21px;
       animation: starTwinkle 3.5s ease-in-out infinite;
     }
 
     .star-one {
-      top: 20%;
-      left: 29%;
+      top: 12px;
+      left: 25%;
       animation-delay: 0.5s;
     }
 
     .star-two {
-      right: 10%;
-      top: 18%;
-      font-size: 15px;
+      right: 20%;
+      top: 15px;
+      font-size: 17px;
       animation-delay: 1.6s;
     }
 
     .star-three {
-      left: 20%;
-      bottom: 15%;
-      font-size: 14px;
+      left: 18%;
+      bottom: 12px;
+      font-size: 15px;
       animation-delay: 2.2s;
     }
 
     /* 毛糸玉 */
     .yarn {
       font-size: 27px;
-      animation: yarnRoll 6s ease-in-out infinite;
+      animation: yarnRoll 5s ease-in-out infinite;
     }
 
     .yarn-one {
-      left: 5%;
-      bottom: 12%;
+      left: 3%;
+      bottom: 10px;
       animation-delay: 0.3s;
     }
 
     .yarn-two {
-      right: 5%;
-      bottom: 13%;
+      right: 3%;
+      top: 10px;
       font-size: 23px;
       animation-delay: 1.5s;
     }
 
-    /* ヘッダー内の飾りがふわふわ動く */
+    /* ハートがふわふわ動く */
     @keyframes heartFloat {
       0%, 100% {
         transform: translateY(0) rotate(-8deg);
@@ -146,11 +148,11 @@
       }
     }
 
-    /* 星がきらっと回転 */
+    /* 星がきらきら動く */
     @keyframes starTwinkle {
       0%, 100% {
         transform: translateY(0) rotate(0deg) scale(0.9);
-        opacity: 0.5;
+        opacity: 0.55;
       }
 
       50% {
@@ -257,6 +259,7 @@
                   box-shadow 0.3s ease;
     }
 
+    /* カードが浮き上がる */
     .work-card:hover {
       transform: translateY(-6px);
       box-shadow: 0 10px 22px #a68b7628;
@@ -373,7 +376,7 @@
       color: #f8fff8;
     }
 
-    /* 登場アニメーション */
+    /* ヘッダーの登場 */
     @keyframes fadeInDown {
       from {
         opacity: 0;
@@ -386,6 +389,7 @@
       }
     }
 
+    /* セクションの登場 */
     @keyframes fadeInUp {
       from {
         opacity: 0;
@@ -495,7 +499,7 @@
       }
     }
 
-    /* 動きを少なくする設定が有効な場合 */
+    /* 動きを少なくする設定への配慮 */
     @media (prefers-reduced-motion: reduce) {
       *,
       *::before,
@@ -518,7 +522,7 @@
 
   <!-- ヘッダー -->
   <header>
-    <!-- 飾りは装飾用なので読み上げ対象から除外 -->
+    <!-- ハート・星・毛糸玉の飾り -->
     <span class="decoration heart heart-one" aria-hidden="true">♥</span>
     <span class="decoration star star-one" aria-hidden="true">✦</span>
     <span class="decoration heart heart-two" aria-hidden="true">♡</span>
