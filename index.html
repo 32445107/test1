@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Website - 編み物制作集</title>
+  <title>My Website</title>
 
   <style>
     /* ページ全体 */
@@ -14,7 +14,7 @@
 
     body {
       margin: 0;
-      padding-bottom: 160px;
+      padding-bottom: 155px;
       font-family: "Hiragino Kaku Gothic ProN",
                    "Yu Gothic", sans-serif;
       line-height: 1.8;
@@ -52,7 +52,7 @@
     section {
       margin-bottom: 25px;
       padding: 25px;
-      background-color: #ffffff;
+      background-color: #fffdf9;
       border: 1px solid #f3e7dc;
       border-radius: 18px;
       box-shadow: 0 4px 12px #a68b7612;
@@ -68,7 +68,7 @@
       font-size: 22px;
     }
 
-    /* セクションごとに異なるパステルカラー */
+    /* セクションごとのパステルカラー */
     section:nth-child(2) h2 {
       background-color: #e8f0e3;
     }
@@ -85,7 +85,82 @@
       margin: 10px 0;
     }
 
-    /* 制作物一覧 */
+    /* 画像カードのレイアウト */
+    .works-intro {
+      margin-bottom: 22px;
+      color: #927b70;
+      font-size: 14px;
+    }
+
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    /* 小窓のようなカード */
+    .work-card {
+      min-width: 0;
+      overflow: hidden;
+      padding: 10px;
+      background-color: #ffffff;
+      border: 1px solid #f1dfd5;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px #a68b7618;
+      transition: transform 0.25s ease,
+                  box-shadow 0.25s ease;
+    }
+
+    .work-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 18px #a68b7628;
+    }
+
+    /* 画像 */
+    .work-image {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      border-radius: 11px;
+      background-color: #f8eee5;
+      border: 4px solid #fff8f0;
+    }
+
+    .work-image img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .work-card:hover .work-image img {
+      transform: scale(1.04);
+    }
+
+    /* 作品の説明 */
+    .work-info {
+      padding: 10px 3px 5px;
+    }
+
+    .work-tag {
+      display: inline-block;
+      padding: 2px 8px;
+      color: #9c7770;
+      background-color: #fbeae6;
+      border-radius: 20px;
+      font-size: 9px;
+      letter-spacing: 1px;
+    }
+
+    .work-info h3 {
+      margin: 8px 0;
+      color: #795b50;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    /* 参考ページのリスト */
     .project-list {
       padding-left: 25px;
     }
@@ -123,6 +198,7 @@
       font-size: 13px;
       line-height: 1.7;
       box-shadow: 0 -3px 12px #a68b7610;
+      z-index: 100;
     }
 
     footer p {
@@ -144,6 +220,14 @@
 
     footer small {
       color: #f8fff8;
+    }
+
+    /* タブレット対応 */
+    @media (max-width: 700px) {
+      .works-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
     }
 
     /* スマートフォン対応 */
@@ -183,6 +267,28 @@
         margin: 0 4px;
       }
     }
+
+    /* 小さいスマートフォンでは横長カード */
+    @media (max-width: 400px) {
+      .works-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .work-card {
+        display: grid;
+        grid-template-columns: 110px minmax(0, 1fr);
+        align-items: center;
+        gap: 10px;
+      }
+
+      .work-image {
+        aspect-ratio: 1 / 1;
+      }
+
+      .work-info {
+        padding: 5px 0;
+      }
+    }
   </style>
 </head>
 
@@ -200,31 +306,85 @@
     <section>
       <h2>ようこそ！</h2>
       <p>
-        このサイトは初心者が編み物で制作物を作る過程を
-        記録するサイトです。
+        このサイトは初心者が編み物で制作物を作る過程を記録するサイトです。
       </p>
-       <img src="https://github.com/32445107/test1/blob/main/cupcake.jpg?raw=true" alt="サンプル">
     </section>
 
-    <section>
+    <!-- 制作物一覧 -->
+    <section class="works-section">
       <h2>制作物一覧</h2>
-      <ul class="project-list">
-        <li>ワッフル模様のポーチ</li>
-        <li>耳当て</li>
-        <li>コースター</li>
-      </ul>
+      <p class="works-intro">
+        ひとつずつ心を込めて作った作品たちです 🧶
+      </p>
+
+      <div class="works-grid">
+
+        <!-- ワッフル模様のポーチ -->
+        <article class="work-card">
+          <div class="work-image">
+            <img src="pouch.jpg"
+                 alt="ワッフル模様のポーチ">
+          </div>
+          <div class="work-info">
+            <span class="work-tag">HANDMADE</span>
+            <h3>ワッフル模様のポーチ</h3>
+          </div>
+        </article>
+
+        <!-- 耳当て -->
+        <article class="work-card">
+          <div class="work-image">
+            <img src="earmuffs.jpg"
+                 alt="白い犬の顔がついた耳当て">
+          </div>
+          <div class="work-info">
+            <span class="work-tag">HANDMADE</span>
+            <h3>耳当て</h3>
+          </div>
+        </article>
+
+        <!-- コースター -->
+        <article class="work-card">
+          <div class="work-image">
+            <img src="coaster.jpg"
+                 alt="コースター">
+          </div>
+          <div class="work-info">
+            <span class="work-tag">HANDMADE</span>
+            <h3>コースター</h3>
+          </div>
+        </article>
+
+      </div>
     </section>
 
+    <!-- 参考にさせていただいたページ -->
     <section>
       <h2>参考にさせていただいたページ</h2>
-      <p>参考にしたサイトのURLをここに追加します。</p>
+      <p>
+        ーーーーーーーー
+      </p>
     </section>
 
+    <!-- 制作予定のもの -->
     <section>
       <h2>制作予定のもの</h2>
-      <ul class="project-list">
-        <li>花束</li>
-      </ul>
+
+      <div class="works-grid">
+
+        <!-- 花束 -->
+        <article class="work-card">
+          <div class="work-image">
+            <img src="bouquet.jpg"
+                 alt="制作予定の花束">
+          </div>
+          <div class="work-info">
+            <span class="work-tag">COMING SOON</span>
+            <h3>花束</h3>
+          </div>
+        </article>
+
+      </div>
     </section>
 
   </main>
